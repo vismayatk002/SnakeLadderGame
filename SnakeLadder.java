@@ -7,12 +7,13 @@ public class SnakeLadder{
         Scanner sc= new Scanner(System.in);
         //initialise position as 0
         int position = 0;
+        int winningPosition = 5;
         int min = 1;
         int max = 6;
         int play;
 
         // Iterate till position  reaches 100
-        while(position <= 100 ){
+        while(position < winningPosition ){
             System.out.print("Press 1 for Roll the Die : ");
             play = sc.nextInt();
             if(play == 1){
@@ -29,16 +30,21 @@ public class SnakeLadder{
                     case 1 : 
                         System.out.println("Option : Ladder ");
                         position += dieNumber;
+                        // Position unchanged when it is greater than 100 
+                        if(position > winningPosition){
+                            position -= dieNumber;
+                        }
                     break;
                     case 2 : 
                         System.out.println("Option : Snake ");
                         position -= dieNumber;
+                        // Reset position value to 0 when it is negative
+                        if(position < 0){
+                            position = 0;
+                        }
                     break;
                 }
-                // Reset position value to 0 when it is negative
-                if(position < 0){
-                    position = 0;
-                }
+                
                 System.out.println("Current position : " + position + "\n");  
             }
             else{
