@@ -7,7 +7,8 @@ public class SnakeLadder{
         Scanner sc= new Scanner(System.in);
         //initialise position as 0
         int position = 0;
-        int winningPosition = 5;
+        int rollCount = 0;
+        int winningPosition = 100;
         int min = 1;
         int max = 6;
         int play;
@@ -43,15 +44,16 @@ public class SnakeLadder{
                             position = 0;
                         }
                     break;
-                }
-                
-                System.out.println("Current position : " + position + "\n");  
+                }                
+                System.out.println("Current position : " + position + "\n");
+                rollCount++;  
             }
             else{
                 System.out.println("Invalid Input");
             }
         }
         System.out.println("You won the game !! ");       
+        System.out.println("You rolled dies "+ rollCount +" times.");       
 
     }
 }
